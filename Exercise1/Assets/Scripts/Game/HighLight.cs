@@ -1,33 +1,30 @@
 ﻿namespace Game.HighLight
 {
-    using System.Collections;
-    using System.Collections.Generic;
     using UnityEngine;
 
     public class HighLight : MonoBehaviour
     {
-        private Material material;
+        protected Renderer rend;
 
         public Color highLightColor = Color.white;
         
         public Color defaultColor = Color.white;
         
-        // Start is called before the first frame update
-        void Start()
+        void Awake()
         {
-            material = GetComponent<Renderer>().material;
+            rend = GetComponent<Renderer>();
             SetHighLightOff();
         }
 
         public void SetHighlightOn()
         {
-            material.color = highLightColor;
+            rend.material.color = highLightColor;
         }
 
         public void SetHighLightOff()
         {
-            material.color = defaultColor;
-        }
+            rend.material.color = defaultColor;
+        } 
     }
 }
 

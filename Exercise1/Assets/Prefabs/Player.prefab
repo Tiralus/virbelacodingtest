@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 3428347649937276553}
   - component: {fileID: 8203461321094745820}
   - component: {fileID: 3475797786979963405}
+  - component: {fileID: 4841292468718240407}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -109,4 +110,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73b28a71b49bc2b4a8ecc6a1879ff770, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  things: []
+  gameObjects: []
+  spawner: {fileID: 4841292468718240407}
+--- !u!114 &4841292468718240407
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9107661243784759384}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f179ae457d6f438439ccba5bae1a9bde, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spawnArea: {x: 8, y: 8, z: 0}
+  centralObject: {fileID: 9107661243784759384}
+  spawnThing: {fileID: 2946417531097917987, guid: 364ba3c2228c6964c93218888bffaa20, type: 3}
+  spawnBot: {fileID: 9107661243784759384}

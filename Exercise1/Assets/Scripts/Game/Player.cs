@@ -1,6 +1,7 @@
 ﻿namespace Game.Player
 {
     using Game.HighLight;
+    using Game.SpawnObject;
     
     using System.Collections.Generic;
     
@@ -11,10 +12,38 @@
         // Set through inspector this is the list of game objects containing highlight
         public List<GameObject> gameObjects;
 
+        public SpawnObject spawner;
+
         private HighLight closestHighLight;
-        
+
+        public void Start()
+        {
+            if (spawner)
+            {
+                spawner.OnSpawn += OnSpawn;
+            }
+        }
+
+        public void OnDestroy()
+        {
+            if (spawner)
+            {
+                spawner.OnSpawn -= OnSpawn;
+            }
+        }
+
         // Update is called once per frame
-        void Update()
+        public void Update()
+        {
+            SetClosestObject();
+        }
+
+        public void OnSpawn(GameObject newSpawn)
+        {
+            gameObjects.Add(newSpawn);
+        }
+
+        public void SetClosestObject()
         {
             float distanceToClosest = Mathf.Infinity;
             
