@@ -34,7 +34,7 @@ When the game is running, make the Thing closest to Player turn red. One and onl
  1. Add 5 objects randomly distributed around the central object with the name "Bot"
  1. Add a C# script called "Bot" to your project.
  1. Attach the "Bot" script to the 5 new objects.
-     1. Again, you may use this script or ignore it when pursing the Functional Goals.
+ 1. Again, you may use this script or ignore it when pursing the Functional Goals.
 
 **Functional Goal 2**:
 
@@ -53,8 +53,22 @@ Allow the designer to choose the color for Things/Bots at edit time.
 ## Questions ##
 
  1. How can your implementation be optimized?
+    There are several critical code areas that can be optimized:
+    1. Managing the list of bots/things
+        1a. The list contains all of the things/bots gameobjects. Whenever something spawns it's added to the list. Extra logic could be added so that the list prunes gameobjects outside of an area around the player.
+        1b. Add support for removing objects, this would be managed by the spawner and another action would be added to properly remove objects from the list. 
+    2. Spawning gameobjects
+        2a. If the requirements called for scaling up spawning, an object pool could be used. It could instantiate some number of objects and disable them on start.
+    3. Optimize finding the nearest
+        3a. I used Vector3.Distance, there is discussion around how optimized Distance is versus squaremagnitude. I preferred readability in this case. If it was going to scale up then I would opt for using a KD tree to segment the space so that the list only contains gameobjets in an area. Another option is to limit when the nearest is calculated so it isn't on every frame.
+
  1. How much time did you spend on your implementation?
+    I committd my project through each phase. For the 1st 3 phases, I would say 45 minutes to an hour to have everything functional and working. I took some extra time for some quality-of-life elements and reorganizing some structures. So in total, about 4 hours.  
+
  1. What was most challenging for you?
+    Architecting the code, keeping things modular and laying out responsibilities within the code. It's very easy to just dump everything into the Player script. Defining code responsibilities can be challenging since it can mean refactoring and breaking apart code that is already functional. One other challenge is managing scope, writing code to the requirements exactly or trying to anticipate future requirements or features. Naming things :)
+
+
 
 ## Optional ##
 

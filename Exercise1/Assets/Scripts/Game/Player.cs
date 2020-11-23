@@ -6,7 +6,7 @@
     using System.Collections.Generic;
     
     using UnityEngine;
-
+    
     public class Player : MonoBehaviour
     {
         // Set through inspector this is the list of game objects containing highlight
@@ -16,6 +16,7 @@
 
         private HighLight closestHighLight;
 
+        // Added the spawner class with an action to return the spawned object.
         public void Start()
         {
             if (spawner)
@@ -24,6 +25,7 @@
             }
         }
 
+        // Make sure we remove ourselves from the action, prevent memory leaks
         public void OnDestroy()
         {
             if (spawner)
@@ -43,6 +45,8 @@
             gameObjects.Add(newSpawn);
         }
 
+        // This is a fairly straightfoward implementation to find the nearest gameobject
+        // Go through the list of objects and distance check each one. 
         public void SetClosestObject()
         {
             float distanceToClosest = Mathf.Infinity;

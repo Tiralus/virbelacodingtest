@@ -7,12 +7,16 @@
         protected Renderer rend;
 
         public Color highLightColor = Color.white;
-        
-        public Color defaultColor = Color.white;
+
+        private Color defaultColor;
         
         void Awake()
         {
             rend = GetComponent<Renderer>();
+            
+            // Default color is the materials original color
+            defaultColor = rend.material.color;
+            
             SetHighLightOff();
         }
 
