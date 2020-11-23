@@ -1,39 +1,42 @@
 ﻿namespace Game.Player
 {
-    using Game.Thing;
+    using Game.HighLight;
     
-    using System.Collections;
     using System.Collections.Generic;
     
     using UnityEngine;
 
     public class Player : MonoBehaviour
     {
-        // Set through inspector this is the list of thing objects
-        public List<Thing> things;
+        // Set through inspector this is the list of game objects containing highlight
+        public List<GameObject> gameObjects;
 
-        private Thing closestThing;
-
+        private HighLight closestHighLight;
+        
         // Update is called once per frame
         void Update()
         {
             float distanceToClosest = Mathf.Infinity;
-            foreach (Thing thing in things)
+            
+            foreach (GameObject gameObject in gameObjects)
             {
-                float distanceToObject = Vector3.Distance(this.transform.position, thing.transform.position);
+                float distanceToObject = Vector3.Distance(this.transform.position, gameObject.transform.position);
 
-                if (distanceToObject < distanceToClosest)
+                HighLight highLight = gameObject.GetComponent<HighLight>();
+
+                if (distanceToObject < distanceToClosest && highLight)
                 {
-                    if (closestThing)
-                        closestThing.SetHighLightOff();
+                    if (closestHighLight)
+                        closestHighLight.SetHighLightOff();
                     
-                    thing.SetHighlightOn();
-                    closestThing = thing;
+                    highLight.SetHighlightOn();
+                    closestHighLight = highLight;
                     distanceToClosest = distanceToObject;
                 }
             }
-            if (closestThing)
-                Debug.DrawLine(this.transform.position, closestThing.transform.position);
+            
+            if (closestHighLight)
+                Debug.DrawLine(this.transform.position, closestHighLight.transform.position);
         }
     }
 }

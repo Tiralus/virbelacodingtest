@@ -1,16 +1,16 @@
-﻿namespace Game.Thing
+﻿namespace Game.HighLight
 {
     using System.Collections;
     using System.Collections.Generic;
     using UnityEngine;
 
-    public class Thing : MonoBehaviour
+    public class HighLight : MonoBehaviour
     {
         private Material material;
 
-        private Color highLightColor = Color.red; 
+        public Color highLightColor = Color.white;
         
-        private Color defaultColor = Color.white;
+        public Color defaultColor = Color.white;
         
         // Start is called before the first frame update
         void Start()
