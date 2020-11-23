@@ -66,7 +66,7 @@ Allow the designer to choose the color for Things/Bots at edit time.
     I committd my project through each phase. For the 1st 3 phases, I would say 45 minutes to an hour to have everything functional and working. I took some extra time for some quality-of-life elements and reorganizing some structures. So in total, about 4 hours.  
 
  1. What was most challenging for you?
-    Architecting the code, keeping things modular and laying out responsibilities within the code. It's very easy to just dump everything into the Player script. Defining code responsibilities can be challenging since it can mean refactoring and breaking apart code that is already functional. One other challenge is managing scope, writing code to the requirements exactly or trying to anticipate future requirements or features. Naming things :)
+    Architecting the code, keeping things modular, and laying out responsibilities within the code. It's very easy to just dump everything into the Player script. Defining code responsibilities can be challenging since it can mean refactoring and breaking apart code that is already functional. One other challenge is managing scope, writing code to the requirements exactly or trying to anticipate future requirements or features. Also naming things.
 
 
 
