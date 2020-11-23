@@ -1,4 +1,4 @@
-﻿namespace Game.HighLight
+﻿namespace Game
 {
     using UnityEngine;
 

@@ -1,4 +1,4 @@
-﻿namespace Game.SpawnObject
+﻿namespace Game
 {
     using System;
     using UnityEngine;
@@ -53,7 +53,7 @@
         {
             if (prefab)
             {
-                Vector3 spawnPosition = this.transform.position + new Vector3(Random.Range(-spawnArea.x, spawnArea.x),
+                Vector3 spawnPosition = centralObject.transform.position + new Vector3(Random.Range(-spawnArea.x, spawnArea.x),
                     Random.Range(-spawnArea.y, spawnArea.y),
                     Random.Range(-spawnArea.z, spawnArea.z));
 

@@ -1,8 +1,5 @@
-﻿namespace Game.Player
+﻿namespace Game
 {
-    using Game.HighLight;
-    using Game.SpawnObject;
-    
     using System.Collections.Generic;
     
     using UnityEngine;
@@ -68,8 +65,8 @@
                 }
             }
             
-            if (closestHighLight)
-                Debug.DrawLine(this.transform.position, closestHighLight.transform.position);
+            // if (closestHighLight)
+            //    Debug.DrawLine(this.transform.position, closestHighLight.transform.position);
         }
     }
 }
